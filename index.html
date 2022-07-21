@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación de Presupuesto</title>
+    <link href="css/estilos.css" rel='stylesheet'/>
+    <script src='js/Dato.js'  defer ></script>
+    <script src='js/Ingreso.js'  defer ></script>
+    <script src='js/Egreso.js'  defer ></script>
+    <script src='js/app.js' defer ></script>
+    <script src='./data/IngresosData.js' defer ></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body id="body" onload="cargarApp()">
+    <div class="cabecero">
+        <div class="presupuesto">
+            <div class="presupuesto_titulo">
+                Presupuesto Disponible
+            </div>
+            <div class="presupuesto_valor" id="presupuesto">+0</div>
+            
+            <div class="presupuesto_ingreso limpiarEstilos">
+                <div class="presupuesto_ingreso--texto">Ingresos</div>
+                <div class="derecha">
+                    <div class="presupuesto_ingreso--valor" id="ingresos">+0</div>
+                    <div class="presupuesto_ingreso--porcentaje">&nbsp;</div>
+                </div>
+            </div>
+
+            <div class="presupuesto_egreso limpiarEstilos">
+                <div class="presupuesto_egreso--texto">Egresos</div>
+                <div class="derecha">
+                    <div class="presupuesto_egreso--valor" id="egresos">-0</div>
+                    <div class="presupuesto_egreso--porcentaje" id="porcentaje">0%</div>
+                </div>
+            </div>
+
+            <div class="dolar_blue limpiarEstilos">
+                <div class="dolar_blue--texto">Dolar Blue</div>
+                <div class="derecha">
+                    <div class="dolar_blue--valor" id="dolar-blue">0</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <form id="form" onsubmit="return false;">
+        <div class="agregar">
+            <div class="agregar_contenedor">
+                <select name="" id="tipo" class="agregar_tipo">
+                    <option value="ingreso">+</option>
+                    <option value="egreso">-</option>
+                </select>
+                <input type="text" class="agregar_descripcion" placeholder="Agregar descripcion" id="descripcion" name="descripcion"/>
+                <input type="number" class="agregar_valor" placeholder="Valor" id="valor" name="valor" step="any"/>
+                <button class="agregar_btn" onclick="agregarDato()">
+                    <ion-icon name="checkbox-outline"></ion-icon>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <div class="contenedor limpiarEstilos">
+        <div class="ingreso">
+            <h2 class="ingreso_titulo">Ingresos</h2>
+            <div id="lista-ingresos">
+
+            </div>
+        </div>
+
+        <div class="egreso">
+            <h2 class="egreso_titulo">Egresos</h2>
+            <div id="lista-egresos">
+
+            </div>
+        </div>
+
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+</body>
+</html>
